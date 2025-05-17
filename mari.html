@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Instructor Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      color: #2c3e50;
+    }
+
+    .section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .logout-btn {
+      background-color: #e74c3c;
+      margin-top: 20px;
+    }
+
+    .logout-btn:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome, Instructor Renz!</h1>
+
+    <div class="section view-courses">
+      <h2>View Courses</h2>
+      <p>Browse the courses you are assigned to teach or manage.</p>
+    </div>
+
+    <div class="section manage-courses">
+      <h2>Create and Manage Courses</h2>
+      <p>Create new courses, update existing ones.</p>
+    </div>
+
+    <div class="section manage-materials">
+      <h2>Create and Manage Learning Materials</h2>
+      <p>Upload lecture notes, slides, assignments. </p>
+    </div>
+
+    <div class="section student-overview">
+      <h2>Student Overview</h2>
+      <p>Track enrolled students and monitor their progress.</p>
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user || user.role !== "instructor") {
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

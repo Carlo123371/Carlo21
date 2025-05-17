@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding: 50px;
+    }
+    .dashboard {
+      background: white;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #666;
+    }
+    .admin-options {
+      margin-top: 30px;
+    }
+    .admin-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .admin-button:hover {
+      background-color: #0056b3;
+    }
+    .logout-button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .logout-button:hover {
+      background-color: #c9302c;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1>Welcome, Hans!</h1>
+    <p>You are logged in as an <strong>admin</strong>.</p>
+
+    <div class="admin-options">
+      <button class="admin-button" onclick="alert('Redirecting to manage courses...')">Manage Courses</button>
+      <button class="admin-button" onclick="alert('Redirecting to manage users...')">Manage Users</button>
+      <button class="admin-button" onclick="alert('Redirecting to manage reports...')">Manage Reports</button>
+    </div>
+
+    <button class="logout-button" onclick="logout()">Log Out</button>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
